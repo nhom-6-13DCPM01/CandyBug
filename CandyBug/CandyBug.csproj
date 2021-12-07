@@ -1960,8 +1960,6 @@
     <Content Include="Content\Client\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Client\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Client\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\Client\img\pro-kit4.webp" />
-    <Content Include="Content\Client\img\pro-l2.jpg.crdownload" />
     <Content Include="Content\Admin\scss\navs\_global.scss" />
     <Content Include="Content\Admin\scss\navs\_sidebar.scss" />
     <Content Include="Content\Admin\scss\navs\_topbar.scss" />
