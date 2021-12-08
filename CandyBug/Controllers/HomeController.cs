@@ -17,10 +17,10 @@ namespace CandyBug.Controllers
             return View();
         }
 
-        public ActionResult ListProduct()
+        public ActionResult Register()
         {
-            var list = db.Products.ToList();
-            return View(list);
+
+            return View();
         }
     }
 }
