@@ -23,7 +23,7 @@ namespace CandyBug.Models
         public int Id { get; set; }
         public Nullable<int> IdCategory { get; set; }
         public Nullable<int> IdProducer { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public string Unit { get; set; }
         public string Image { get; set; }
         public int Views { get; set; }
