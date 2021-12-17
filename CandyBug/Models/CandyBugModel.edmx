@@ -239,7 +239,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdCategory" Type="Int32" />
           <Property Name="IdProducer" Type="Int32" />
-          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" />
           <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Views" Type="Int32" Nullable="false" />
