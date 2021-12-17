@@ -18,7 +18,7 @@ namespace CandyBug.Models
         public int IdOrder { get; set; }
         public int IdProduct { get; set; }
         public int Quantity { get; set; }
-        public double Total { get; set; }
+        public decimal Total { get; set; }
     
         public virtual Oder Oder { get; set; }
         public virtual Product Product { get; set; }

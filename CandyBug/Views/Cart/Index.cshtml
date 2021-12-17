@@ -1,4 +1,5 @@
-﻿
+﻿@using CandyBug.Models
+@model IEnumerable<ItemCart>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,7 +20,7 @@
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
-            @Html.Action("_SearchProductPartial","Product")
+            @Html.Action("_SearchProductPartial", "Product")
 
             <div class="col-md-8">
                 <div class="product-content-right">
@@ -107,7 +108,7 @@
                             <form method="post" action="#" class="shipping_calculator">
                                 <section id="calcalute-shipping-wrap" class="shipping-calculator-form collapse">
 
-                                    
+
 
                                     <p class="form-row form-row-wide"><input type="text" id="calc_shipping_state" name="calc_shipping_state" placeholder="State / county" value="" class="input-text"> </p>
 
