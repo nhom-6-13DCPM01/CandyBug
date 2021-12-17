@@ -35,7 +35,7 @@
     <![endif]-->
 </head>
 <body>
-
+    @ViewBag.Html
     <div class="header-area">
         <div class="container">
             <div class="row">
@@ -82,7 +82,7 @@
                         <h1><a href="~/Views/Home/Index.cshtml"><img src="~/Content/Client/img/logo1.png"></a></h1>
                     </div>
                 </div>
-                @Html.Partial("~/Views/Shared/_CartPartial.cshtml")
+                @Html.Action("_CartPartial","Cart")
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -136,12 +136,8 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User Navigation </h2>
-                        <ul>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Order history</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Vendor contact</a></li>
-                            <li><a href="#">Front page</a></li>
+                        <ul>                          
+                            <li><a href=@Url.Action("MyCart","Cart")>Order history</a></li>
                         </ul>
                     </div>
                 </div>

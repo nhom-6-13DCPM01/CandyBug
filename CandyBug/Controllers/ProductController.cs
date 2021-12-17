@@ -34,6 +34,8 @@ namespace CandyBug.Controllers
             if (Id != 0)
             {
                 product = db.Products.SingleOrDefault(c => c.Id == Id);
+                product.Views++;
+                db.SaveChanges();
                 ViewBag.ListRelated = db.Products.Where(c => c.Category.Name == product.Category.Name).ToList();
                 return View(product);
             }

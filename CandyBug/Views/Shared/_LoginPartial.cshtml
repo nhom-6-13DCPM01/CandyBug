@@ -1,5 +1,5 @@
 ﻿@using CandyBug.Models
-@if (Session["Account"] != null && Session["Account"] != "")
+@if (Session["Account"] != null)
 {
     Account account = (Account)Session["Account"];
     if (account.Role == 1)
@@ -193,9 +193,8 @@
     else
     {
         <span style="color:blue">Hello @account.DisplayName</span>
-        <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-        <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-        <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
+        <li><a href=@Url.Action("MyCart","Cart")><i class="fa fa-user"></i> My Cart</a></li>
+        <li><a href=@Url.Action("Checkout","Cart")><i class="fa fa-user"></i> Checkout</a></li>
         @Html.ActionLink("Logout", "Logout", "Home")
     }
 }

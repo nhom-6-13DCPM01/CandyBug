@@ -2193,6 +2193,8 @@
     <Content Include="Views\Shared\_RecentPostPartial.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Cart\MyCart.cshtml" />
+    <Content Include="Views\Cart\_ListOrderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

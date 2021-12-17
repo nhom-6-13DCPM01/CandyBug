@@ -6,7 +6,7 @@
             <div class="product-f-image">
                 <img src=@Url.Content("~/Content/Client/img/" + item.Image) style="width: 227px; height: 210px " alt="">
                 <div class="product-hover">
-                    <a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                    <a href=@Url.Action("AddItem","Cart",new {@Id = item.Id, @strUrl = Request.Url.ToString() }) class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                     @Html.ActionLink("See details", "SingleProduct", "Product", new { @Id = item.Id }, new { @class = "view-details-link" })
                 </div>
             </div>
