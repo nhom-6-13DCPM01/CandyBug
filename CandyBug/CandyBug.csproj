@@ -139,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QLSPController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -168,6 +169,7 @@
       <DependentUpon>CandyBugModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ItemCart.cs" />
+    <Compile Include="Models\Metadata\Product.metadata.cs" />
     <Compile Include="Models\Oder.cs">
       <DependentUpon>CandyBugModel.tt</DependentUpon>
     </Compile>
@@ -2153,6 +2155,11 @@
     <Content Include="Models\CandyBugModel.edmx.diagram">
       <DependentUpon>CandyBugModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\QLSP\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QLSP\ThemMoi.cshtml" />
+    <Content Include="Areas\Admin\Views\QLSP\ChinhSua.cshtml" />
+    <Content Include="Areas\Admin\Views\QLSP\HienThi.cshtml" />
+    <Content Include="Areas\Admin\Views\QLSP\Xoa.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2199,6 +2206,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\TimKiem\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
