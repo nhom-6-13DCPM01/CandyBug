@@ -35,7 +35,7 @@
     <![endif]-->
 </head>
 <body>
-
+    @ViewBag.Html
     <div class="header-area">
         <div class="container">
             <div class="row">
@@ -79,10 +79,10 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="./"><img src="~/Content/Client/img/logo1.png"></a></h1>
+                        <h1><a href="~/Views/Home/Index.cshtml"><img src="~/Content/Client/img/logo1.png"></a></h1>
                     </div>
                 </div>
-                @Html.Partial("~/Views/Shared/_CartPartial.cshtml")
+                @Html.Action("_CartPartial","Cart")
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -99,15 +99,13 @@
                     </button>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop page</a></li>
-                        <li><a href="single-product.html">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">Others</a></li>
-                        <li><a href="#">Contact</a></li>
+                    <ul class="nav navbar-nav" style="padding-left: 200px;">
+                        <li class=@ViewBag.Active>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class=@ViewBag.ActivePro>@Html.ActionLink("Shope Page","ShopePage","Product")</li>
+                        <li class=@ViewBag.ActiveSingle>@Html.ActionLink("Single Product", "SingleProduct", "Product")</li>
+                        <li class=@ViewBag.ActiveCart>@Html.ActionLink("Cart", "Index", "Cart")</li>
+                        <li class=@ViewBag.ActiveCheckout>@Html.ActionLink("Checkout", "Checkout", "Cart")</li>
+                        <li class=@ViewBag.ActiveCate>@Html.ActionLink("Category", "Index", "Category")</li>
                     </ul>
                 </div>
             </div>
@@ -138,12 +136,8 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User Navigation </h2>
-                        <ul>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Order history</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Vendor contact</a></li>
-                            <li><a href="#">Front page</a></li>
+                        <ul>                          
+                            <li><a href=@Url.Action("MyCart","Cart")>Order history</a></li>
                         </ul>
                     </div>
                 </div>
@@ -152,11 +146,11 @@
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">Categories</h2>
                         <ul>
-                            <li><a href="#">Candy</a></li>
-                            <li><a href="#">Snack</a></li>
-                            <li><a href="#">Milk</a></li>
-                            <li><a href="#">Cookie</a></li>
-                            <li><a href="#">Cake</a></li>
+                            <li>@Html.ActionLink("Candy", "Index", "Category", new { @category = "Candy" }, new { })</li>
+                            <li>@Html.ActionLink("Snack", "Index", "Category", new { @category = "Snack" }, new { })</li>
+                            <li>@Html.ActionLink("Milk", "Index", "Category", new { @category = "Milk" }, new { })</li>
+                            <li>@Html.ActionLink("Cookie", "Index", "Category", new { @category = "Cookie" }, new { })</li>
+                            <li>@Html.ActionLink("Cake", "Index", "Category", new { @category = "Cake" }, new { })</li>
                         </ul>
                     </div>
                 </div>
@@ -211,7 +205,7 @@
 
     <!-- Main Script -->
     <script src="~/Content/Client/js/main.js"></script>
-
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <!-- Slider -->
     <script type="text/javascript" src="~/Content/Client/js/bxslider.min.js"></script>
     <script type="text/javascript" src="~/Content/Client/js/script.slider.js"></script>

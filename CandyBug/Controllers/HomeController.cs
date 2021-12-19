@@ -14,7 +14,19 @@ namespace CandyBug.Controllers
         CandybugOnlineEntities db = new CandybugOnlineEntities();
         public ActionResult Index()
         {
-
+            ViewBag.Active = "active";
+            //Danh sách các sản phẩm sell
+            ViewBag.Listlast = db.Products.Where(c => c.Discount != 0);
+            //Danh sách các Nhà sản xuất
+            ViewBag.Listbrand = db.Producers.Select(c=>c);
+            //Danh sách các sản phẩm mới nhất
+            ViewBag.Listnew = (from c in db.Products orderby c.DateCreate descending select c);
+            //Danh sách các sản phẩm xem nhiều nhất
+            ViewBag.Listview = (from c in db.Products orderby c.Views descending select c);
+            //Danh sách các sản phẩm bán chạy nhất
+            ViewBag.Listtopsell = (from c in db.Products 
+                                   orderby c.OrderInfoes.Sum(u=>u.Quantity) descending
+                                   select c );
             //Set Route đến vùng Admin
             /*return View("~/Areas/Admin/Views/Home/Index.cshtml");*/
             return View();
@@ -56,7 +68,7 @@ namespace CandyBug.Controllers
                 if (account.Role == 1)
                 {
                     Session["Account"] = account;
-                    return View("~/Areas/Admin/Views/Home/Index.cshtml", account);
+                    return View("~/Areas/Admin/Views/Home/Index.cshtml");
                 }
 
                 Session["Account"] = account;

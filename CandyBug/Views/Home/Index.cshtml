@@ -1,4 +1,4 @@
-﻿@Model 
+﻿@using CandyBug.Models
 @{
     ViewBag.Title = "Index";
 }
@@ -13,7 +13,7 @@
                         KitKat <span class="primary">Dessert <strong>Delight</strong></span>
                     </h2>
                     <h4 class="caption subtitle">truffle</h4>
-                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                    <a class="caption button-radius" href=@Url.Action("ShopePage","Product")><span class="icon"></span>Shop now</a>
                 </div>
             </li>
             <li>
@@ -23,7 +23,7 @@
                         by two get one <span class="primary">20% <strong>off</strong></span>
                     </h2>
                     <h4 class="caption subtitle">Chupa Chups.*</h4>
-                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                    <a class="caption button-radius" href=Url.Action("ShopePage","Product")><span class="icon"></span>Shop now</a>
                 </div>
             </li>
             <li>
@@ -33,7 +33,7 @@
                         Snack <span class="primary">Lays </span>
                     </h2>
                     <h4 class="caption subtitle">Select favor</h4>
-                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                    <a class="caption button-radius" href=Url.Action("ShopePage","Product")><span class="icon"></span>Shop now</a>
                 </div>
             </li>
             <li>
@@ -43,7 +43,7 @@
                         Christmas <span class="primary">edition </span>
                     </h2>
                     <h4 class="caption subtitle">Cookies</h4>
-                    <a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
+                    <a class="caption button-radius" href=Url.Action("ShopePage","Product")><span class="icon"></span>Shop now</a>
                 </div>
             </li>
         </ul>
@@ -58,7 +58,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="single-promo promo1">
                     <i class="fa fa-refresh"></i>
-                    <p>fresh products</p>
+                    <p>Fresh Products</p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -90,97 +90,8 @@
             <div class="col-md-12">
                 <div class="latest-product">
                     <h2 class="section-title">Last Sell</h2>
-                    <div class="product-carousel">
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="~/Content/Client/img/pro-oreo5.jpeg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2><a href="single-product.html">Oreo (Fall Treats)</a></h2>
-
-                            <div class="product-carousel-price">
-                                <ins>100.000đ</ins> <del>190.000đ</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="~/Content/Client/img/pro-oreo4.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2>Oreo (Red Velvet)</h2>
-                            <div class="product-carousel-price">
-                                <ins>12.000đ</ins> <del>20.000đ</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="~/Content/Client/img/pro-oreo3.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2>Oreo (strawberry)</h2>
-
-                            <div class="product-carousel-price">
-                                <ins>12.000đ</ins> <del>20.000đ</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="~/Content/Client/img/pro-oreo2.png" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2><a href="single-product.html">Oreo (Cadbudy Dipper)</a></h2>
-
-                            <div class="product-carousel-price">
-                                <ins>35.000đ</ins> <del>45.000đ</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="~/Content/Client/img/pro-oreo6.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2>Oreo (Red Velvet)</h2>
-
-                            <div class="product-carousel-price">
-                                <ins>100.000đ</ins> <del>150.000đ</del>
-                            </div>
-                        </div>
-                        <div class="single-product">
-                            <div class="product-f-image">
-                                <img src="~/Content/Client/img/pro-oreo7.jpg" alt="">
-                                <div class="product-hover">
-                                    <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                </div>
-                            </div>
-
-                            <h2><a href="single-product.html">Oreo (Chocolate)</a></h2>
-
-                            <div class="product-carousel-price">
-                                <ins>12.000đ</ins> <del>20.000đ</del>
-                            </div>
-                        </div>
-                    </div>
+                    @{ IEnumerable<Product> listProduct = (IEnumerable<Product>)@ViewBag.Listlast;}
+                    @Html.Partial("~/Views/Shared/_ProductPartial.cshtml", listProduct)
                 </div>
             </div>
         </div>
@@ -194,14 +105,10 @@
             <div class="col-md-12">
                 <div class="brand-wrapper">
                     <div class="brand-list">
-                        <img src="~/Content/Client/img/brand-kitkat.png" alt="">
-                        <img src="~/Content/Client/img/brand-oreo.png" alt="">
-                        <img src="~/Content/Client/img/brand-mm.png" alt="">
-                        <img src="~/Content/Client/img/brand-chup.png" alt="">
-                        <img src="~/Content/Client/img/brand-lays.png" alt="">
-                        <img src="~/Content/Client/img/brand-na.jpg" alt="">
-                        <img src="~/Content/Client/img/brand-bing.png" alt="">
-                        <img src="~/Content/Client/img/brand-her.png" alt="">
+                        @foreach (var item in (IEnumerable<Producer>)@ViewBag.Listbrand)
+                        {
+                            <img src= @Url.Content("~/Content/Client/img/" + item.Logo) style="width: 210px; height: 210px" alt="">
+                        }
                     </div>
                 </div>
             </div>
@@ -216,145 +123,25 @@
             <div class="col-md-4">
                 <div class="single-product-widget">
                     <h2 class="product-wid-title">Top Sellers</h2>
-                    <a href="" class="wid-view-more">View All</a>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="~/Content/Client/img/pro-1.png" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">Nabati (cheese Wafer)</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>7.000đ</ins>
-                        </div>
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="~/Content/Client/img/pro-b1.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">Banana milk</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>15.000đ</ins>
-                        </div>
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="~/Content/Client/img/pro-c1.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">Chupa Chups (kẹo dẻo hương coca)</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>3.000đ</ins>
-                        </div>
-                    </div>
+                    <a href=@Url.Action("ShopePage","Product") class="wid-view-more">View All</a>
+                    @{ IEnumerable<Product> listSell = (IEnumerable<Product>)@ViewBag.Listtopsell; }
+                   @Html.Partial("~/Views/Shared/_TopProductPartial.cshtml",listSell.Take(3))
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="single-product-widget">
-                    <h2 class="product-wid-title">Recently Viewed</h2>
-                    <a href="#" class="wid-view-more">View All</a>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="~/Content/Client/img/pro-c2.jfif" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">Chupa Chups (Tropical)</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>1.000đ</ins>
-                        </div>
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="~/Content/Client/img/pro-c5.jfif" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">Chupa Chups (Kẹo dẻo hương trái cây)</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>3.000đ</ins>
-                        </div>
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="~/Content/Client/img/pro-chup.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">Chupa Chups (kẹo mút)</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>3.000đ</ins>
-                        </div>
-                    </div>
+                    <h2 class="product-wid-title">Top View</h2>
+                    <a href=@Url.Action("ShopePage","Product") class="wid-view-more">View All</a>
+                    @{ IEnumerable<Product> listView = (IEnumerable<Product>)@ViewBag.Listview; }
+                    @Html.Partial("~/Views/Shared/_TopProductPartial.cshtml", listView.Take(3))
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="single-product-widget">
                     <h2 class="product-wid-title">Top New</h2>
-                    <a href="#" class="wid-view-more">View All</a>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="~/Content/Client/img/pro-kitkat.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">KitKat</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>18.000đ</ins>
-                        </div>
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="~/Content/Client/img/pro-kit2.jpg" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">KitKat (matcha)</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>10.000đ</ins>
-                        </div>
-                    </div>
-                    <div class="single-wid-product">
-                        <a href="single-product.html"><img src="~/Content/Client/img/pro-kit3.jfif" alt="" class="product-thumb"></a>
-                        <h2><a href="single-product.html">KitKat (raspberry)</a></h2>
-                        <div class="product-wid-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product-wid-price">
-                            <ins>10.000đ</ins>
-                        </div>
-                    </div>
+                    <a href=@Url.Action("ShopePage","Product") class="wid-view-more">View All</a>
+                    @{ IEnumerable<Product> listNew = (IEnumerable<Product>)@ViewBag.Listnew; }
+                    @Html.Partial("~/Views/Shared/_TopProductPartial.cshtml", listNew.Take(3))
                 </div>
             </div>
         </div>
