@@ -15,5 +15,12 @@ namespace CandyBug.Areas.Admin.Controllers
             Statistical_DAO statistical_DAO = new Statistical_DAO();
             return View(statistical_DAO.getDanhSachThongKe());
         }
+
+        [HttpPost]
+        public ActionResult Detail(int maHoaDon)
+        {
+
+            return View();
+        }
     }
 }

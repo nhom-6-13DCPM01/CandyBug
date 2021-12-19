@@ -16,6 +16,7 @@ namespace CandyBug.Areas.Admin.Models.DAO
         public List<Statistical> getDanhSachThongKe()
         {
             var danhSach = (from u in DBCandyBug.Oders
+                            where u.Status == "GIAO HÀNG THÀNH CÔNG"
                             select new Statistical
                             {
                                 maHoaDon = u.Id,
@@ -24,6 +25,11 @@ namespace CandyBug.Areas.Admin.Models.DAO
                                 trangThai = u.Status
                             }).ToList();
             return danhSach;
+        }
+
+        public Statistical getThongKeChiTiet()
+        {
+            return null;
         }
     }
 }
