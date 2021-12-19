@@ -11,7 +11,8 @@ namespace CandyBug.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,18 +20,26 @@ namespace CandyBug.Models
         {
             this.OrderInfoes = new HashSet<OrderInfo>();
         }
-    
+        
         public int Id { get; set; }
+        
         public Nullable<int> IdCategory { get; set; }
+        
         public Nullable<int> IdProducer { get; set; }
+        
         public decimal Price { get; set; }
+        
         public string Unit { get; set; }
+        
         public string Image { get; set; }
         public int Views { get; set; }
         public Nullable<int> Discount { get; set; }
+        
         public Nullable<System.DateTime> DateCreate { get; set; }
         public string Description { get; set; }
+       
         public Nullable<int> Quantity { get; set; }
+        
         public string Name { get; set; }
     
         public virtual Category Category { get; set; }
