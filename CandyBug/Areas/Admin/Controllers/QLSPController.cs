@@ -30,7 +30,7 @@ namespace CandyBug.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateInput(false)]
+        /*[ValidateInput(false)]*/
         public ActionResult ThemMoi(Product product,HttpPostedFileBase fileUpload)
         {
             
@@ -50,16 +50,16 @@ namespace CandyBug.Areas.Admin.Controllers
                 //Lưu tên của file
                 var fileName = Path.GetFileName(fileUpload.FileName);
                 //lưu đường dẫn của file
-                var path = Path.Combine(Server.MapPath("~/Content/Client/img/"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Content/Client/img"), fileName);
                 //kiểm tra hình ảnh có tồn tại chưa
-                if (System.IO.File.Exists(path))
+                /*if (System.IO.File.Exists(path))
                 {
                     ViewBag.ThongBao = "Hình ảnh đã tồn tại";
                 }
                 else
                 {
                     fileUpload.SaveAs(path);
-                }
+                }*/
                 product.Image = fileUpload.FileName;
                 db.Products.Add(product);
                 db.SaveChanges();
@@ -84,21 +84,21 @@ namespace CandyBug.Areas.Admin.Controllers
             return View(product);
         }
         [HttpPost]
-        [ValidateInput(false)]
+        /*[ValidateInput(false)]*/
         public ActionResult ChinhSua(Product product, HttpPostedFileBase fileUpload)
         {
-            if (fileUpload == null)
+            /*if (fileUpload == null)
             {
                 ViewBag.ThongBao = "Chọn hình ảnh";
                 return View();
-            }
+            }*/
 
             if (ModelState.IsValid)
             {
                 //Lưu tên của file
                 var fileName = Path.GetFileName(fileUpload.FileName);
                 //lưu đường dẫn của file
-                var path = Path.Combine(Server.MapPath("~/Content/Client/img/"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Content/Client/img"), fileName);
                 //kiểm tra hình ảnh có tồn tại chưa
                 if (System.IO.File.Exists(path))
                 {
