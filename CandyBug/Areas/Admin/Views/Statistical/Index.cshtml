@@ -1,0 +1,51 @@
+﻿@using CandyBug.Areas.Admin.Models.EF;
+@model List<Statistical>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã hóa đơn
+        </th>
+        <th>
+            Ngày tạo
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.maHoaDon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngayTao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tongTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trangThai)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.maHoaDon }) |
+        </td>
+    </tr>
+}
+
+</table>
