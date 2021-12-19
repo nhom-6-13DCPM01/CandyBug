@@ -99,9 +99,10 @@
 @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
 <div class="MenuTrang">
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))</div>
-<stye 
-      .MenuTrang li{
+<style
+      .MenuTrang li
+     {
     display: inLine;
-    }
-      />
+     }
+     />
    
