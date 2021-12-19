@@ -28,24 +28,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.maHoaDon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ngayTao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tongTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.trangThai)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id=item.maHoaDon }) |
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.maHoaDon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngayTao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tongTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trangThai)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.maHoaDon }) |
+            </td>
+        </tr>
+    }
 
 </table>
+
+

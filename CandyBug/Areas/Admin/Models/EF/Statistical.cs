@@ -9,7 +9,7 @@ namespace CandyBug.Areas.Admin.Models.EF
     {
         public int maHoaDon { get; set; }
         public DateTime ngayTao { get; set; }
-        public double tongTien { get; set; }
+        public Nullable<decimal> tongTien { get; set; }
         public String trangThai { get; set; }
     }
 }
