@@ -53,10 +53,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.IdCategory)
+            @Html.DisplayFor(modelItem => item.Category.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IdProducer)
+            @Html.DisplayFor(modelItem => item.Producer.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
@@ -65,9 +65,8 @@
             @Html.DisplayFor(modelItem => item.Unit)
         </td>
         <td>
-            <div id="Image"> <img src="@Url.Content("~/Content/Client/img/"+item.Image)" width="150" height="150"/></div>
-                
-               @* <img src="~/Content/Client/img/chupachups-banner.png" alt="Slide">*@
+            <div id="Image"> <img src="@Url.Content("~/Content/Client/img/"+item.Image)" width="150" height="150"/></div>       
+               
 <td>
             @Html.DisplayFor(modelItem => item.Views)
         </td>
@@ -87,9 +86,10 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Chỉnh Sửa", "ChinhSua", new { @Id=item.Id }) |
-            @Html.ActionLink("Hiển Thị", "HienThi", new { @Id=item.Id }) |
-            @Html.ActionLink("Xóa", "Xoa", new { @Id=item.Id })
+           
+            @Html.ActionLink("Chỉnh Sửa", "ChinhSua", new { @Id = item.Id }) |
+            @Html.ActionLink("Hiển Thị", "HienThi", new { @Id = item.Id }) |
+            @Html.ActionLink("Xóa", "Xoa", new { @Id = item.Id })
         </td>
     </tr>
 }
@@ -99,10 +99,11 @@
 @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
 <div class="MenuTrang">
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))</div>
-<style
+
+@*<style
       .MenuTrang li
      {
     display: inLine;
      }
-     />
+     />*@
    

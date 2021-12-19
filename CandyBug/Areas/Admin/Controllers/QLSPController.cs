@@ -18,7 +18,7 @@ namespace CandyBug.Areas.Admin.Controllers
         {
             int pageNumber = (page ?? 1);
             int pageSize = 10;
-            return View(db.Products.ToList().OrderBy(n=>n.Name).ToPagedList(pageNumber,pageSize));
+            return View(db.Products.ToList().OrderBy(n=>n.Id).ToPagedList(pageNumber,pageSize));
         }
         //thêm mới
         [HttpGet]
