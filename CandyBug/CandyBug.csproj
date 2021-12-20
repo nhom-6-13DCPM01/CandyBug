@@ -139,11 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-<<<<<<< HEAD
     <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
-=======
-    <Compile Include="Areas\Admin\Controllers\QLSPController.cs" />
->>>>>>> giang
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Models\DAO\Statistical_DAO.cs" />
@@ -175,7 +171,6 @@
       <DependentUpon>CandyBugModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ItemCart.cs" />
-    <Compile Include="Models\Metadata\Product.metadata.cs" />
     <Compile Include="Models\Oder.cs">
       <DependentUpon>CandyBugModel.tt</DependentUpon>
     </Compile>
@@ -2161,16 +2156,8 @@
     <Content Include="Models\CandyBugModel.edmx.diagram">
       <DependentUpon>CandyBugModel.edmx</DependentUpon>
     </Content>
-<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\Statistical\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Statistical\LocTheoNgay.cshtml" />
-=======
-    <Content Include="Areas\Admin\Views\QLSP\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\QLSP\ThemMoi.cshtml" />
-    <Content Include="Areas\Admin\Views\QLSP\ChinhSua.cshtml" />
-    <Content Include="Areas\Admin\Views\QLSP\HienThi.cshtml" />
-    <Content Include="Areas\Admin\Views\QLSP\Xoa.cshtml" />
->>>>>>> giang
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
