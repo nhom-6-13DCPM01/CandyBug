@@ -1,0 +1,50 @@
+﻿@model List<CandyBug.Areas.Admin.Model.EF.Statistical>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Thống kê</h2>
+
+<a href="@Url.Action("LocTheoNgay", "Statistical")">Lọc theo ngày</a>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().maHoaDon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ngayTao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().tongTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().trangThai)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.maHoaDon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngayTao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tongTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trangThai)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Detail", new { @id = item.maHoaDon }) |
+            </td>
+        </tr>
+    }
+
+</table>

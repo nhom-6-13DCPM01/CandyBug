@@ -1,0 +1,65 @@
+﻿@model List<CandyBug.Areas.Admin.Model.EF.HoaDon>
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<h3>Thông tin hóa đơn</h3>
+<br />
+
+<label>Ngày tạo</label>
+<br />
+<p>@ViewBag.HoaDon.ngayTao</p>
+<br />
+<label>Trạng thái</label>
+<br />
+<p>@ViewBag.HoaDon.trangThai</p>
+<br />
+
+<h3>Danh mục sản phẩm</h3>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().maHoaDon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().tenSanPham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().gia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().soLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().tongTien)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.maHoaDon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenSanPham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tongTien)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("Index", "Statistical", new { Area = "Admin"})">Quay lại</a>
