@@ -30,7 +30,7 @@ namespace CandyBug.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        /*[ValidateInput(false)]*/
+        [ValidateInput(false)]
         public ActionResult ThemMoi(Product product,HttpPostedFileBase fileUpload)
         {
             
@@ -52,20 +52,21 @@ namespace CandyBug.Areas.Admin.Controllers
                 //lưu đường dẫn của file
                 var path = Path.Combine(Server.MapPath("~/Content/Client/img"), fileName);
                 //kiểm tra hình ảnh có tồn tại chưa
-                /*if (System.IO.File.Exists(path))
+                if (System.IO.File.Exists(path))
                 {
                     ViewBag.ThongBao = "Hình ảnh đã tồn tại";
                 }
                 else
                 {
                     fileUpload.SaveAs(path);
-                }*/
+                }
                 product.Image = fileUpload.FileName;
                 db.Products.Add(product);
                 db.SaveChanges();
             }
-            
-            return View();
+
+            /* return View();*/
+            return RedirectToAction("Index");
         }
         //Chỉnh sửa sp
         [HttpGet]
@@ -82,9 +83,10 @@ namespace CandyBug.Areas.Admin.Controllers
             ViewBag.IdCategory = new SelectList(db.Categories.ToList().OrderBy(n => n.Name), "Id", "Name");
             ViewBag.IdProducer = new SelectList(db.Producers.ToList().OrderBy(n => n.Name), "Id", "Name");
             return View(product);
+
         }
         [HttpPost]
-        /*[ValidateInput(false)]*/
+        [ValidateInput(false)]
         public ActionResult ChinhSua(Product product, HttpPostedFileBase fileUpload)
         {
             /*if (fileUpload == null)
@@ -151,7 +153,7 @@ namespace CandyBug.Areas.Admin.Controllers
         public ActionResult XacNhanXoa(int Id)
         {
             Product product = db.Products.SingleOrDefault(n => n.Id == Id);
-            if(product == null)
+            if (product == null)
             {
                 Response.StatusCode = 404;
                 return null;
