@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CandyBug.Areas.Admin.Models.DAO;
+using CandyBug.Areas.Admin.Models.EF;
 
 namespace CandyBug.Areas.Admin.Controllers
 {
@@ -21,6 +22,16 @@ namespace CandyBug.Areas.Admin.Controllers
         {
 
             return View();
+        }
+
+        public ActionResult LocTheoNgay()
+        {
+            Statistical objStatistical = new Statistical()
+            {
+                FromDate = DateTime.Now,
+                ToDate = DateTime.Now.AddDays(1)
+            };
+            return View(objStatistical);
         }
     }
 }
