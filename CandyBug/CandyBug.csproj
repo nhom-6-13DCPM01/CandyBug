@@ -137,6 +137,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QLHDController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLSPController.cs" />
     <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
     <Compile Include="Areas\Admin\Model\DAO\Statistical_DAO.cs" />
@@ -2167,6 +2168,11 @@
     <Content Include="Areas\Admin\Views\Statistical\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\Statistical\LocTheoNgay.cshtml" />
     <Content Include="Areas\Admin\Views\Statistical\ThongKeByDate.cshtml" />
+    <Content Include="Areas\Admin\Views\QLHD\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QLHD\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QLHD\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\QLHD\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QLHD\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

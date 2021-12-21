@@ -11302,6 +11302,12 @@ body.sidebar-toggled footer.sticky-footer {
 	color: #aaebd3;
 }
 
+#buttonLink a{
+    text-decoration: none;
+    color: white;
+    margin-bottom: 30px;
+}
+
 img{
   margin-bottom: 3px;
 }
