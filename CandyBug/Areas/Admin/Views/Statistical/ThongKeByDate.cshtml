@@ -4,7 +4,9 @@
     ViewBag.Title = "ThongKeByDate";
 }
 
-<h2>Thống Kê Theo Ngày</h2>
+<div id="tieuDeBonChuTroLen">
+    <h2>Thống kê hóa đơn theo ngày</h2>
+</div>
 
 <table class="table">
     <tr>
@@ -39,12 +41,15 @@
                 @Html.DisplayFor(modelItem => item.trangThai)
             </td>
             <td>
-                @Html.ActionLink("Details", "Detail", new { @id = item.maHoaDon }) |
+                <div id="buttonLink">
+                    <button class="btn btn-info">@Html.ActionLink("Details", "Detail", new { @id = item.maHoaDon })</button>
+                </div>
             </td>
         </tr>
     }
 
 </table>
+<hr />
 <div id="buttonLink">
     <button class="btn btn-danger"><a href="@Url.Action("Index", "Statistical", new { Area = "Admin"})">Quay lại</a></button>
 </div>

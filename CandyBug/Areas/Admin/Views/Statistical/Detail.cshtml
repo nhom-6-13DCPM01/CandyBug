@@ -1,25 +1,28 @@
 ﻿@model List<CandyBug.Areas.Admin.Model.EF.HoaDon>
 
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = "Thông tin chi tiết đơn hàng";
 }
 
-<h2>Detail</h2>
-
+<div id="tieuDeBonChuTroXuong">
+    <h2>Thông tin chi tiết</h2>
+</div>
+<hr />
 <h3>Thông tin hóa đơn</h3>
-<br />
-
-<label>Ngày tạo</label>
-<br />
-<p>@ViewBag.HoaDon.ngayTao</p>
-<br />
-<label>Trạng thái</label>
-<br />
-<p>@ViewBag.HoaDon.trangThai</p>
-<br />
-
+<div id="noiDungHoaDon">
+    <strong>Mã hóa đơn</strong>
+    <p>@ViewBag.HoaDon.maHoaDon</p>
+</div>
+<div id="noiDungHoaDon">
+    <strong>Ngày tạo</strong>
+    <p>@ViewBag.HoaDon.ngayTao</p>
+</div>
+<div id="noiDungHoaDon">
+    <strong>Trạng thái</strong>
+    <p>@ViewBag.HoaDon.trangThai</p>
+</div>
+<hr />
 <h3>Danh mục sản phẩm</h3>
-<br />
 <table class="table">
     <tr>
         <th>
@@ -61,7 +64,7 @@
     }
 
 </table>
-
+<hr />
 <div id="buttonLink">
     <button class="btn btn-danger"><a href="@Url.Action("Index", "Statistical", new { Area = "Admin"})">Quay lại</a></button>
 </div>

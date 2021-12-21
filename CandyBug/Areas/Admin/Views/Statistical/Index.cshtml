@@ -1,12 +1,14 @@
 ﻿@model List<CandyBug.Areas.Admin.Model.EF.Statistical>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Thống kê theo đơn hàng";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Thống kê</h2>
-
+<div id="tieuDeBonChuTroLen">
+    <h2>Thống kê theo đơn hàng</h2>
+</div>
+<hr />
 <p id="buttonLink">
     <button class="btn btn-primary">@Html.ActionLink("Thống kê theo ngày", "LocTheoNgay")</button>
 </p>
