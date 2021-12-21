@@ -18,8 +18,10 @@ namespace CandyBug.Areas.Admin.Controllers
         {
             int pageNumber = (page ?? 1);
             int pageSize = 10;
-            return View(db.Products.ToList().OrderBy(n=>n.Id).ToPagedList(pageNumber,pageSize));
+            return View(db.Products.ToList().OrderBy(n=>n.Id).ToPagedList(pageNumber,pageSize));  
+ 
         }
+        
         //thêm mới
         [HttpGet]
         public ActionResult ThemMoi()
@@ -140,26 +142,29 @@ namespace CandyBug.Areas.Admin.Controllers
         {
             //lấy ra đối tượng sách theo mã
             Product product = db.Products.SingleOrDefault(n => n.Id == Id);
-            if (product == null)
+            if (product == null )
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            
-
             return View(product);
         }
         [HttpPost, ActionName("Xoa")]
         public ActionResult XacNhanXoa(int Id)
         {
             Product product = db.Products.SingleOrDefault(n => n.Id == Id);
+            
+
             if (product == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
+           
             db.Products.Remove(product);
+           
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
