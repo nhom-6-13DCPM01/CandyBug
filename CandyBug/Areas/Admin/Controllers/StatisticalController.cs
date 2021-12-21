@@ -12,14 +12,8 @@ namespace CandyBug.Areas.Admin.Controllers
 {
     public class StatisticalController : Controller
     {
-        private Statistical_DAO statistical;
-        private CandybugOnlineEntities DBCandyBug;
-
-        public StatisticalController()
-        {
-            statistical = new Statistical_DAO();
-            DBCandyBug = new CandybugOnlineEntities();
-        }
+        private Statistical_DAO statistical = new Statistical_DAO();
+        private CandybugOnlineEntities DBCandyBug = new CandybugOnlineEntities();
 
         // GET: Admin/Statistical
         public ActionResult Index()
@@ -43,13 +37,23 @@ namespace CandyBug.Areas.Admin.Controllers
 
         public ActionResult LocTheoNgay()
         {
-            return View();
+            PickDate pickDate = new PickDate()
+            {
+                fromDate = DateTime.Now,
+                toDate = DateTime.Now.AddDays(1)
+            };
+            return View(pickDate);
         }
 
         [HttpPost]
         public ActionResult LocTheoNgay(DateTime fromDate, DateTime toDate)
         {
             List<Statistical> danhSach;
+            if (fromDate.Date == null || toDate.Date.Equals(null))
+            {
+                ViewBag.ThongBaoLoiDuLieuDauVao = "Vui lòng chọn lại ngày!";
+                return View();
+            }
             if (fromDate.Date > toDate.Date)
             {
                 ViewBag.ThongBaoLoiDuLieuDauVao = "Vui lòng chọn lại ngày!";
