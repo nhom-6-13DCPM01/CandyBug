@@ -44,7 +44,9 @@
                 @Html.DisplayFor(modelItem => item.trangThai)
             </td>
             <td>
-                @Html.ActionLink("Details", "Detail", new { @id = item.maHoaDon }) |
+                <div id="buttonLink">
+                    <button class="btn btn-info">@Html.ActionLink("Details", "Detail", new { @id = item.maHoaDon })</button>
+                </div>
             </td>
         </tr>
     }
