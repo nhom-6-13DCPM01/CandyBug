@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Net;
 using System.Web.Mvc;
 using CandyBug.Areas.Admin.Model.DAO;
 using CandyBug.Areas.Admin.Model.EF;
@@ -37,31 +38,26 @@ namespace CandyBug.Areas.Admin.Controllers
 
         public ActionResult LocTheoNgay()
         {
-            PickDate pickDate = new PickDate()
-            {
-                fromDate = DateTime.Now,
-                toDate = DateTime.Now.AddDays(1)
-            };
-            return View(pickDate);
+            return View();
         }
 
         [HttpPost]
-        public ActionResult LocTheoNgay(DateTime fromDate, DateTime toDate)
+        public ActionResult LocTheoNgay(DateTime? fromDate, DateTime? toDate)
         {
             List<Statistical> danhSach;
-            if (fromDate.Date == null || toDate.Date.Equals(null))
+            if (fromDate == null || toDate.Equals(null))
             {
                 ViewBag.ThongBaoLoiDuLieuDauVao = "Vui lòng chọn lại ngày!";
                 return View();
             }
-            if (fromDate.Date > toDate.Date)
+            if (fromDate > toDate)
             {
                 ViewBag.ThongBaoLoiDuLieuDauVao = "Vui lòng chọn lại ngày!";
                 return View();
             }
-            if ((!fromDate.Date.Equals(null) && !toDate.Date.Equals(null)) && !(fromDate.Date > toDate.Date))
+            if ((!fromDate.Equals(null) && !toDate.Equals(null)) && !(fromDate > toDate))
             {
-                danhSach = statistical.getDanhSachThongKeByDate(fromDate, toDate);
+                danhSach = statistical.getDanhSachThongKeByDate(fromDate.Value, toDate.Value);
                 return View("ThongKeByDate", danhSach);
             }
             return View();
