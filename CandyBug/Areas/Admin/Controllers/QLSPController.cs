@@ -18,30 +18,30 @@ namespace CandyBug.Areas.Admin.Controllers
         {
             int pageNumber = (page ?? 1);
             int pageSize = 10;
-            return View(db.Products.ToList().OrderBy(n=>n.Id).ToPagedList(pageNumber,pageSize));  
- 
+            return View(db.Products.ToList().OrderBy(n => n.Id).ToPagedList(pageNumber, pageSize));
+
         }
-        
+
         //thêm mới
         [HttpGet]
         public ActionResult ThemMoi()
         {
             //đưa dữ liệu vào dropdown list
-            ViewBag.IdCategory = new SelectList(db.Categories.ToList().OrderBy(n=>n.Name), "Id", "Name");
+            ViewBag.IdCategory = new SelectList(db.Categories.ToList().OrderBy(n => n.Name), "Id", "Name");
             ViewBag.IdProducer = new SelectList(db.Producers.ToList().OrderBy(n => n.Name), "Id", "Name");
             return View();
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult ThemMoi(Product product,HttpPostedFileBase fileUpload)
+        public ActionResult ThemMoi(Product product, HttpPostedFileBase fileUpload)
         {
-            
+
 
             //đưa dữ liệu vào dropdown list
             ViewBag.IdCategory = new SelectList(db.Categories.ToList().OrderBy(n => n.Name), "Id", "Name");
             ViewBag.IdProducer = new SelectList(db.Producers.ToList().OrderBy(n => n.Name), "Id", "Name");
             //Kiểm tra đường dẫn ảnh 
-            if(fileUpload == null)
+            if (fileUpload == null)
             {
                 ViewBag.ThongBao = "Chọn hình ảnh";
                 return View();
@@ -75,8 +75,8 @@ namespace CandyBug.Areas.Admin.Controllers
         public ActionResult ChinhSua(int Id)
         {
             //lấy ra đối tượng sách theo mã
-            Product product = db.Products.SingleOrDefault(n=>n.Id==Id);
-            if(product == null)
+            Product product = db.Products.SingleOrDefault(n => n.Id == Id);
+            if (product == null)
             {
                 Response.StatusCode = 404;
                 return null;
@@ -132,8 +132,8 @@ namespace CandyBug.Areas.Admin.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            
-            
+
+
             return View(product);
         }
         //xóa sp
@@ -142,7 +142,7 @@ namespace CandyBug.Areas.Admin.Controllers
         {
             //lấy ra đối tượng sách theo mã
             Product product = db.Products.SingleOrDefault(n => n.Id == Id);
-            if (product == null )
+            if (product == null)
             {
                 Response.StatusCode = 404;
                 return null;
@@ -153,20 +153,37 @@ namespace CandyBug.Areas.Admin.Controllers
         public ActionResult XacNhanXoa(int Id)
         {
             Product product = db.Products.SingleOrDefault(n => n.Id == Id);
-            
+
 
             if (product == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-           
+            IEnumerable<OrderInfo> orderInfos = db.OrderInfoes.Where(c => c.IdProduct == product.Id).ToList();
+            List<Oder> oders = new List<Oder>();
+            foreach (OrderInfo item in orderInfos)
+            {
+                Oder oder = db.Oders.SingleOrDefault(c => c.Id == item.IdOrder);
+                if (oders.SingleOrDefault(c=>c.Id==oder.Id)==null)
+                {
+                    oders.Add(oder);
+                }
+                db.OrderInfoes.Remove(item);
+                db.SaveChanges();
+            }
+            IEnumerable<Oder> oders1 = oders;
+            foreach (Oder item in oders1)
+            {
+                db.Oders.Remove(item);
+                db.SaveChanges();
+            }
             db.Products.Remove(product);
-           
+
             db.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
     }
-    }
+}
