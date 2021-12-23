@@ -137,7 +137,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\OdersController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLSPController.cs" />
     <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
@@ -2175,11 +2174,6 @@
     <Content Include="Areas\Admin\Views\OrderManage\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\OrderManage\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\OrderManage\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Oders\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Oders\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Oders\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Oders\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Oders\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
