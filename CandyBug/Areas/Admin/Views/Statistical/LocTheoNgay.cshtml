@@ -30,8 +30,8 @@
 
     <div class="form-group">
         <div id="buttonLink" class="col-md-offset-2 col-md-10">
-            <input id="btnShow" type="submit" value="OK" class="btn btn-success" />
-            <button class="btn btn-danger"><a href="@Url.Action("Index", "Statistical", new { Area = "Admin"})">Quay lại</a></button>
+            <input id="btnChon" type="submit" value="Chọn" class="btn btn-success" />
+            <button class="btn btn-danger">@Html.ActionLink("Quay lại", "Index", "Statistical")</button>
         </div>
     </div>
 }

@@ -57,9 +57,15 @@
                 @Html.DisplayFor(modelItem => item.tenNhanVien)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { @id = item.maHoaDon }) |
-                @Html.ActionLink("Details", "Detail", new { @id = item.maHoaDon }) |
-                @Html.ActionLink("Delete", "Delete", new { @id = item.maHoaDon })
+                <div id="buttonLink" class="col-md-1">
+                    <button class="btn btn-warning">@Html.ActionLink("Edit", "Edit", new { @id = item.maHoaDon })</button>
+                </div>
+                <div id="buttonLink" class="col-md-1">
+                    <button class="btn btn-info">@Html.ActionLink("Details", "Detail", new { @id = item.maHoaDon })</button>
+                </div>
+                <div id="buttonLink" class="col-md-1">
+                    <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { @id = item.maHoaDon })</button>
+                </div>
             </td>
         </tr>
     }

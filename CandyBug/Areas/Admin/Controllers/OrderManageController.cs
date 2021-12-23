@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using CandyBug.Models;
 using CandyBug.Areas.Admin.Model.DAO;
 using CandyBug.Areas.Admin.Model.EF;
+using System.Net;
 
 namespace CandyBug.Areas.Admin.Controllers
 {
@@ -40,29 +41,58 @@ namespace CandyBug.Areas.Admin.Controllers
             }
             else
             {
-                return View("Index");
+                return RedirectToAction("Index");
             }
-            return View();
         }
 
-        public ActionResult Edit()
+        [HttpGet]
+        public ActionResult Edit(int id)
         {
-            return View();
+            List<String> trangThai = new List<string>() { "DUYỆT", "CHƯA DUYỆT", "GIAO HÀNG THÀNH CÔNG"};
+            ViewBag.DanhSachTrangThai = trangThai;
+            return View(order.timDonHang(id));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(DonHang donHang)
         {
-            return View();
+            if (donHang.ngayGiao.Equals(null))
+            {
+                ViewBag.ThongBaoNgay = "Vui lòng chọn ngày";
+                return View();
+            }
+            else
+            {
+                order.suaThongTinDonHang(donHang);
+                return RedirectToAction("Index");
+            }
         }
 
-        public ActionResult Delete()
+        // GET: Admin/Oders/Delete/5
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Oder oder = DBCandyBug.Oders.Find(id);
+            if (oder == null)
+            {
+                return HttpNotFound();
+            }
+            return View(oder);
         }
 
-        public ActionResult Delete(int id)
+        // POST: Admin/Oders/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            return View();
+            Oder oder = DBCandyBug.Oders.Find(id);
+            DBCandyBug.Oders.Remove(oder);
+            DBCandyBug.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

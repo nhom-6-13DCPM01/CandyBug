@@ -40,5 +40,37 @@ namespace CandyBug.Areas.Admin.Model.DAO
                             }).ToList();
             return danhSach;
         }
+
+        public void xoaDonHang(int maHoaDon)
+        {
+            Oder order = DBCandyBug.Oders.Find(maHoaDon);
+            DBCandyBug.Oders.Remove(order);
+            DBCandyBug.SaveChanges();
+        }
+
+        public void suaThongTinDonHang(DonHang donHang)
+        {
+            var orderFind = DBCandyBug.Oders.Find(donHang.maHoaDon);
+            orderFind.DeliveryDate = donHang.ngayGiao.Value;
+            orderFind.Status = donHang.trangThai;
+            DBCandyBug.SaveChanges();
+        }
+
+        public DonHang timDonHang(int ID)
+        {
+            var donHang = (from u in DBCandyBug.Oders
+                            where u.Id == ID
+                            select new DonHang
+                            {
+                                maHoaDon = u.Id,
+                                ngayTao = u.DateCreate.Value,
+                                trangThai = u.Status,
+                                ngayGiao = u.DeliveryDate,
+                                diaChi = u.Address,
+                                soDienThoai = u.SDT,
+                                tenNhanVien = u.Account.DisplayName,
+                            }).First();
+            return donHang;
+        }
     }
 }
