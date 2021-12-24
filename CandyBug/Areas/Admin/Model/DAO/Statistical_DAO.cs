@@ -11,6 +11,10 @@ namespace CandyBug.Areas.Admin.Model.DAO
     {
         CandybugOnlineEntities DBCandyBug = new CandybugOnlineEntities();
 
+        /// <summary>
+        /// Lấy danh sách thống kê theo trạng thái Giao hàng thành công
+        /// </summary>
+        /// <returns>Danh sách dùng để thống kê kiểu List<Statistical></returns>
         public List<Statistical> getDanhSachThongKe()
         {
             var danhSach = (from u in DBCandyBug.Oders
@@ -25,6 +29,12 @@ namespace CandyBug.Areas.Admin.Model.DAO
             return danhSach;
         }
 
+        /// <summary>
+        /// Lấy danh sách thống kê theo trạng thái Giao hàng thành công và được lọc theo ngày
+        /// </summary>
+        /// <param name="fromDate">Mốc bắt đầu lọc</param>
+        /// <param name="toDate">Mốc kết thúc lọc</param>
+        /// <returns>Danh sách thống kê List<Statistical></returns>
         public List<Statistical> getDanhSachThongKeByDate(DateTime fromDate, DateTime toDate)
         {
             var danhSach = (from u in DBCandyBug.Oders
@@ -40,6 +50,11 @@ namespace CandyBug.Areas.Admin.Model.DAO
             return danhSach;
         }
 
+        /// <summary>
+        /// lấy danh sách hóa đơn gồm mã hóa đơn, tên sản phẩm, giá, số lượng, tổng tiền
+        /// </summary>
+        /// <param name="idOrder">maHoaDon</param>
+        /// <returns>danh sách hóa đơn gồm mã hóa đơn, tên sản phẩm, giá, số lượng, tổng tiền. Kiểu List<HoaDon></returns>
         public List<HoaDon> getThongTinHoaDon(int idOrder)
         {
             var danhSach = (from u in DBCandyBug.OrderInfoes

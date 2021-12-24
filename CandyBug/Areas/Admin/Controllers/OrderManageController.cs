@@ -16,11 +16,14 @@ namespace CandyBug.Areas.Admin.Controllers
         private CandybugOnlineEntities DBCandyBug = new CandybugOnlineEntities();
 
         // GET: Admin/OrderManage
+        //Hiển thị danh sách đơn hàng
         public ActionResult Index()
         {
             return View(order.getDanhSachDonHang());
         }
 
+        //Lấy thông tin chi tiết đơn hàng hoặc hóa đơn vì Order có nhiều nghĩa, thông qua ViewBag
+        //Dùng model để hiển thị danh sách sản phẩm của đơn hàng hoặc hóa đơn
         [HttpGet]
         public ActionResult Detail(int? id)
         {
@@ -45,6 +48,8 @@ namespace CandyBug.Areas.Admin.Controllers
             }
         }
 
+        //Tìm đơn hàng và hiển thị lên View để chỉnh sửa
+        //List trạng thái này phục vụ trong dropdownlist
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -53,6 +58,8 @@ namespace CandyBug.Areas.Admin.Controllers
             return View(order.timDonHang(id));
         }
 
+        //Sau khi chỉnh sửa thành công thì sẽ gửi thông tin đã chỉnh sửa về đây và lưu lại
+        //Các thông tin cần chỉnh sửa: Ngày giao và Trạng thái
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(DonHang donHang)
@@ -70,28 +77,39 @@ namespace CandyBug.Areas.Admin.Controllers
         }
 
         // GET: Admin/Oders/Delete/5
+        //Lấy thông tin chi tiết đơn hàng hoặc hóa đơn vì Order có nhiều nghĩa, thông qua ViewBag
+        //Dùng model để hiển thị danh sách sản phẩm của đơn hàng hoặc hóa đơn
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Oder oder = DBCandyBug.Oders.Find(id);
-            if (oder == null)
+            var hoaDon = DBCandyBug.Oders.Find(id);
+            ViewBag.HoaDon = new DonHang
+            {
+                maHoaDon = hoaDon.Id,
+                ngayTao = hoaDon.DateCreate.Value,
+                trangThai = hoaDon.Status,
+                diaChi = hoaDon.Address,
+                ngayGiao = hoaDon.DeliveryDate,
+                soDienThoai = hoaDon.SDT,
+                tenNhanVien = hoaDon.Account.DisplayName
+            };
+            if (hoaDon == null)
             {
                 return HttpNotFound();
             }
-            return View(oder);
+            return View(order.getThongTinHoaDon(id.Value));
         }
 
+        //Dùng để xác nhận là bạn chắc chắn muốn xóa đơn hàng hoặc hóa đơn này
         // POST: Admin/Oders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Oder oder = DBCandyBug.Oders.Find(id);
-            DBCandyBug.Oders.Remove(oder);
-            DBCandyBug.SaveChanges();
+            order.xoaDonHang(id);
             return RedirectToAction("Index");
         }
     }

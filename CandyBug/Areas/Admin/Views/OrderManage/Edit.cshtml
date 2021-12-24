@@ -4,14 +4,16 @@
     ViewBag.Title = "Chỉnh sửa sản phẩm";
 }
 
-
+<div id="tieuDeBonChuTroXuong">
+    <h2>Chỉnh sửa đơn hàng</h2>
+</div>
 
 @using (Html.BeginForm("Edit", "OrderManage", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Product</h4>
+    <h4>Đơn hàng</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.maHoaDon)

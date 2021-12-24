@@ -1,13 +1,15 @@
-﻿@model CandyBug.Models.Oder
+﻿@model List<CandyBug.Areas.Admin.Model.EF.HoaDon>
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Xóa đơn hàng";
 }
 
-<h2>Delete</h2>
+<div id="tieuDeBonChuTroXuong">
+    <h2>Xóa đơn hàng</h2>
+</div>
 
-<div>
-    <h4>Đơn hàng</h4>
+<div id="noiDungHoaDon">
+    <h4>Thông tin đơn hàng</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -15,7 +17,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Id)
+            <p>@ViewBag.HoaDon.maHoaDon</p>
         </dd>
 
         <dt>
@@ -23,7 +25,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DateCreate)
+            <p>@ViewBag.HoaDon.ngayTao</p>
         </dd>
 
         <dt>
@@ -31,7 +33,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Status)
+            <p>@ViewBag.HoaDon.trangThai</p>
         </dd>
 
         <dt>
@@ -39,7 +41,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address)
+            <p>@ViewBag.HoaDon.diaChi</p>
         </dd>
 
         <dt>
@@ -47,7 +49,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DeliveryDate)
+            <p>@ViewBag.HoaDon.ngayGiao</p>
         </dd>
 
         <dt>
@@ -55,7 +57,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SDT)
+            <p>@ViewBag.HoaDon.soDienThoai</p>
         </dd>
 
         <dt>
@@ -63,18 +65,61 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Account.DisplayName)
+            <p>@ViewBag.HoaDon.tenNhanVien</p>
         </dd>
 
     </dl>
+    <hr />
+    <h3>Danh mục sản phẩm</h3>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().maHoaDon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().tenSanPham)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().gia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().soLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().tongTien)
+            </th>
+        </tr>
 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.maHoaDon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tenSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tongTien)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <hr />
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div id="buttonLink" class="form-actions no-color">
+            <input id="btnSave" type="submit" value="Delete" class="btn btn-success" />
+            <button class="btn btn-danger">@Html.ActionLink("Quay lại", "Index", "OrderManage")</button>
         </div>
     }
 </div>

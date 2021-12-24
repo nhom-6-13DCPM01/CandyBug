@@ -36,11 +36,13 @@ namespace CandyBug.Areas.Admin.Controllers
             return View(statistical.getThongTinHoaDon(id));
         }
 
+        //Hiển thị View Lọc theo ngày
         public ActionResult LocTheoNgay()
         {
             return View();
         }
 
+        //Nhận giá trị từ view và xử lí lọc
         [HttpPost]
         public ActionResult LocTheoNgay(DateTime? fromDate, DateTime? toDate)
         {
@@ -63,6 +65,7 @@ namespace CandyBug.Areas.Admin.Controllers
             return View();
         }
 
+        //Hiển thị danh sách đã được lọc theo ngày
         [ActionName("ThongKeByDate")]
         public ActionResult ThongKeByDate(List<Statistical> danhSach)
         {
