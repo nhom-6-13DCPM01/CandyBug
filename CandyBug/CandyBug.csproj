@@ -140,6 +140,7 @@
     <Compile Include="Areas\Admin\Controllers\OrderManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLSPController.cs" />
     <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
+    <Compile Include="Areas\Admin\Model\DAO\DoanhThu_DAO.cs" />
     <Compile Include="Areas\Admin\Model\DAO\Order_DAO.cs" />
     <Compile Include="Areas\Admin\Model\DAO\Statistical_DAO.cs" />
     <Compile Include="Areas\Admin\Model\EF\DonHang.cs" />
@@ -153,7 +154,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs">
       <DependentUpon>CandyBugModel.tt</DependentUpon>
     </Compile>
