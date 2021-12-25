@@ -143,6 +143,7 @@
     <Compile Include="Areas\Admin\Model\DAO\DoanhThu_DAO.cs" />
     <Compile Include="Areas\Admin\Model\DAO\Order_DAO.cs" />
     <Compile Include="Areas\Admin\Model\DAO\Statistical_DAO.cs" />
+    <Compile Include="Areas\Admin\Model\EF\DoanhThu.cs" />
     <Compile Include="Areas\Admin\Model\EF\DonHang.cs" />
     <Compile Include="Areas\Admin\Model\EF\HoaDon.cs" />
     <Compile Include="Areas\Admin\Model\EF\Statistical.cs" />

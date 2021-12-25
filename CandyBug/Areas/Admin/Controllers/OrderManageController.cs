@@ -51,11 +51,18 @@ namespace CandyBug.Areas.Admin.Controllers
         //Tìm đơn hàng và hiển thị lên View để chỉnh sửa
         //List trạng thái này phục vụ trong dropdownlist
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            List<String> trangThai = new List<string>() { "DUYỆT", "CHƯA DUYỆT", "GIAO HÀNG THÀNH CÔNG"};
-            ViewBag.DanhSachTrangThai = trangThai;
-            return View(order.timDonHang(id));
+            if (id.Equals(null))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                List<String> trangThai = new List<string>() { "DUYỆT", "CHƯA DUYỆT", "GIAO HÀNG THÀNH CÔNG" };
+                ViewBag.DanhSachTrangThai = trangThai;
+                return View(order.timDonHang(id.Value));
+            }
         }
 
         //Sau khi chỉnh sửa thành công thì sẽ gửi thông tin đã chỉnh sửa về đây và lưu lại
@@ -83,9 +90,9 @@ namespace CandyBug.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
-            var hoaDon = DBCandyBug.Oders.Find(id);
+            var hoaDon = DBCandyBug.Oders.Find(id.Value);
             ViewBag.HoaDon = new DonHang
             {
                 maHoaDon = hoaDon.Id,

@@ -24,16 +24,23 @@ namespace CandyBug.Areas.Admin.Controllers
 
         [HttpGet, ActionName("Detail")]
         //Hiển thị thông tin chi tiết về hóa đơn
-        public ActionResult Detail(int id)
+        public ActionResult Detail(int? id)
         {
-            var hoaDon = DBCandyBug.Oders.Find(id);
-            ViewBag.HoaDon = new Statistical
+            if(id.Equals(null))
             {
-                maHoaDon = hoaDon.Id,
-                ngayTao = hoaDon.DateCreate,
-                trangThai = hoaDon.Status
-            };
-            return View(statistical.getThongTinHoaDon(id));
+                return View("Index", statistical.getDanhSachThongKe());
+            }
+            else
+            {
+                var hoaDon = DBCandyBug.Oders.Find(id);
+                ViewBag.HoaDon = new Statistical
+                {
+                    maHoaDon = hoaDon.Id,
+                    ngayTao = hoaDon.DateCreate,
+                    trangThai = hoaDon.Status
+                };
+                return View(statistical.getThongTinHoaDon(id.Value));
+            }
         }
 
         //Hiển thị View Lọc theo ngày

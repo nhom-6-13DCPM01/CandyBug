@@ -68,7 +68,7 @@ namespace CandyBug.Controllers
                 if (account.Role == 1)
                 {
                     Session["Account"] = account;
-                    return View("~/Areas/Admin/Views/Home/Index.cshtml");
+                    return RedirectToAction("Index", "Home", new { Area = "Admin"});
                 }
 
                 Session["Account"] = account;
