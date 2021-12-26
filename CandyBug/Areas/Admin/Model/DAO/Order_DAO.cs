@@ -70,10 +70,13 @@ namespace CandyBug.Areas.Admin.Model.DAO
         /// <param name="donHang">Đơn hàng đã chỉnh sửa</param>
         public void suaThongTinDonHang(DonHang donHang)
         {
-            var orderFind = DBCandyBug.Oders.Find(donHang.maHoaDon);
-            orderFind.DeliveryDate = donHang.ngayGiao.Value;
-            orderFind.Status = donHang.trangThai;
-            DBCandyBug.SaveChanges();
+            if (!donHang.ngayGiao.Equals(null))
+            {
+                var orderFind = DBCandyBug.Oders.Find(donHang.maHoaDon);
+                orderFind.DeliveryDate = donHang.ngayGiao.Value;
+                orderFind.Status = donHang.trangThai;
+                DBCandyBug.SaveChanges();
+            }
         }
 
         /// <summary>

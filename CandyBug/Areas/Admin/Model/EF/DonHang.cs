@@ -17,6 +17,7 @@ namespace CandyBug.Areas.Admin.Model.EF
         public DateTime ngayTao { get; set; }
 
         [Display(Name = "Trạng thái")]
+        [Required]
         public String trangThai { get; set; }
 
         [Display(Name = "Địa chỉ")]
@@ -25,6 +26,7 @@ namespace CandyBug.Areas.Admin.Model.EF
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Ngày giao hàng")]
+        [Required]
         public Nullable<DateTime> ngayGiao { get; set; }
 
         [Display(Name = "Số điện thoại")]

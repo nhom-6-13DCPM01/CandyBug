@@ -59,7 +59,7 @@ namespace CandyBug.Areas.Admin.Controllers
             }
             else
             {
-                List<String> trangThai = new List<string>() { "DUYỆT", "CHƯA DUYỆT", "GIAO HÀNG THÀNH CÔNG" };
+                List<String> trangThai = new List<string>() {"DUYỆT", "CHƯA DUYỆT", "GIAO HÀNG THÀNH CÔNG" };
                 ViewBag.DanhSachTrangThai = trangThai;
                 return View(order.timDonHang(id.Value));
             }
@@ -71,10 +71,10 @@ namespace CandyBug.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(DonHang donHang)
         {
-            if (donHang.ngayGiao.Equals(null))
+            if (ModelState.IsValid && donHang.ngayGiao.Equals(null))
             {
                 ViewBag.ThongBaoNgay = "Vui lòng chọn ngày";
-                return View();
+                return View("Edit");
             }
             else
             {
