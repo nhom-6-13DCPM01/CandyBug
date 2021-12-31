@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="~/Views/Home/Index.cshtml"><img src="~/Content/Client/img/logo1.png"></a></h1>
+                        <h1><a href=@Url.Action("Index","Home")><img src="~/Content/Client/img/logo1.png"></a></h1>
                     </div>
                 </div>
                 @Html.Action("_CartPartial", "Cart")
