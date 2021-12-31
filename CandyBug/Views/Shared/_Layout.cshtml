@@ -82,7 +82,7 @@
                         <h1><a href="~/Views/Home/Index.cshtml"><img src="~/Content/Client/img/logo1.png"></a></h1>
                     </div>
                 </div>
-                @Html.Action("_CartPartial","Cart")
+                @Html.Action("_CartPartial", "Cart")
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -101,7 +101,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav" style="padding-left: 200px;">
                         <li class=@ViewBag.Active>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li class=@ViewBag.ActivePro>@Html.ActionLink("Shope Page","ShopePage","Product")</li>
+                        <li class=@ViewBag.ActivePro>@Html.ActionLink("Shope Page", "ShopePage", "Product")</li>
                         <li class=@ViewBag.ActiveSingle>@Html.ActionLink("Single Product", "SingleProduct", "Product")</li>
                         <li class=@ViewBag.ActiveCart>@Html.ActionLink("Cart", "Index", "Cart")</li>
                         <li class=@ViewBag.ActiveCheckout>@Html.ActionLink("Checkout", "Checkout", "Cart")</li>
@@ -136,7 +136,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User Navigation </h2>
-                        <ul>                          
+                        <ul>
                             <li><a href=@Url.Action("MyCart","Cart")>Order history</a></li>
                         </ul>
                     </div>
@@ -191,6 +191,25 @@
             </div>
         </div>
     </div> <!-- End footer bottom area -->
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    @Html.ActionLink("Logout", "Logout", "Home", new { Area = "" }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Latest jQuery form server -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
