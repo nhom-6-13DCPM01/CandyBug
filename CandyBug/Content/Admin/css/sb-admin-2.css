@@ -11302,8 +11302,32 @@ body.sidebar-toggled footer.sticky-footer {
 	color: #aaebd3;
 }
 
-img{
-  margin-bottom: 3px;
+#buttonLink a{
+    text-decoration: none;
+    color: white;
+}
+
+#noiDungHoaDon p{
+    margin-bottom: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#noiDungHoaDon strong {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#tieuDeBonChuTroXuong h2{
+    margin-left: 440px;
+}
+
+#tieuDeBonChuTroLen h2 {
+    margin-left: 360px;
+}
+
+img {
+    margin-bottom: 3px;
 }
 style
 .MenuTrang li {

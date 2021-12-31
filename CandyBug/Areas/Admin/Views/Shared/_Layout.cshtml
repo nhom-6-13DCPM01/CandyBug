@@ -34,7 +34,7 @@
 
             <!-- Sidebar - Brand -->
             <li>
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index", "Home", new { Area = "Admin"})">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <img src="~/Content/Admin/img/CandyBug.png" width="90" height="90" />
                     </div>
@@ -51,7 +51,7 @@
 
             <!--Nav item - Trang chính-->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="@Url.Action("Index", "Home", new { Area = "Admin"})">
                     <img src="~/Content/Admin/img/icons8-home-18.png" width="18" height="18" />
                     <span>Trang chủ</span>
                 </a>
@@ -89,7 +89,7 @@
 
             <!-- Nav Item - Quản lí đơn hàng-->
             <li class="nav-item">
-                <a class="nav-link" href="order.html">
+                <a class="nav-link" href="@Url.Action("Index", "OrderManage", new { Area = "Admin"})">
                     <img src="~/Content/Admin/img/icons8-purchase-order-18.png" width="18" height="18" />
                     <span>Quản lí đơn hàng</span>
                 </a>
@@ -97,7 +97,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="@Url.Action("Index", "Statistical", new { Area = "Admin"})">
                     <img src="~/Content/Admin/img/icons8-combo-chart-18.png" width="18" height="18" />
                     <span>Thống kê</span>
                 </a>
@@ -207,23 +207,24 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
+     @*Bootstrap core JavaScript*@
     <script src="~/Content/Admin/vendor/jquery/jquery.min.js"></script>
     <script src="~/Content/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
+     @*Core plugin JavaScript*@
     <script src="~/Content/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
+     @*Custom scripts for all pages*@
     <script src="~/Content/Admin/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
+    @* Page level plugins *@
     <script src="~/Content/Admin/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
+     @*Page level custom scripts *@
     <script src="~/Content/Admin/js/demo/chart-area-demo.js"></script>
     <script src="~/Content/Admin/js/demo/chart-pie-demo.js"></script>
 
+    @RenderSection("scripts", false)
 </body>
 
 </html>
